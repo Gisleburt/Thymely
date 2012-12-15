@@ -1,0 +1,3 @@
+[submodule "Library/Gisleburt"]
+	path = Library/Gisleburt
+	url = https://github.com/Gisleburt/Gisleburt.git
