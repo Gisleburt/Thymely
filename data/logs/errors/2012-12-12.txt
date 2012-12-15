@@ -1,0 +1,36 @@
+[2012-12-12 22:57:03]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(248):	No fields were found in this LiteTable: Thymely\LazyData\Timing
+	#1 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(170):	_setFields
+	#2 D:\Documents\WebDev\Thymely\Library\Thymely\LazyData\Timing.php(25):	__construct
+	#3 D:\Documents\WebDev\Thymely\httpdocs\index.php(51):	startTiming
+
+[2012-12-12 22:57:09]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(248):	No fields were found in this LiteTable: Thymely\LazyData\Timing
+	#1 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(170):	_setFields
+	#2 D:\Documents\WebDev\Thymely\Library\Thymely\LazyData\Timing.php(25):	__construct
+	#3 D:\Documents\WebDev\Thymely\httpdocs\index.php(51):	startTiming
+
+[2012-12-12 22:58:00]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(248):	No fields were found in this LiteTable: Thymely\LazyData\Timing
+	#1 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(170):	_setFields
+	#2 D:\Documents\WebDev\Thymely\Library\Thymely\LazyData\Timing.php(25):	__construct
+	#3 D:\Documents\WebDev\Thymely\httpdocs\index.php(51):	startTiming
+
+[2012-12-12 22:58:00]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(248):	No fields were found in this LiteTable: Thymely\LazyData\Timing
+	#1 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(170):	_setFields
+	#2 D:\Documents\WebDev\Thymely\Library\Thymely\LazyData\Timing.php(25):	__construct
+	#3 D:\Documents\WebDev\Thymely\httpdocs\index.php(51):	startTiming
+
+[2012-12-12 23:00:44]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(349):	Indirect modification of overloaded property Thymely\LazyData\Timing::$date_modified has no effect
+
+[2012-12-12 23:00:45]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(349):	Indirect modification of overloaded property Thymely\LazyData\Timing::$date_modified has no effect
+
+[2012-12-12 23:06:01]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(350):	Indirect modification of overloaded property Thymely\LazyData\Timing::$date_modified has no effect
+
+[2012-12-12 23:06:01]
+	#0 D:\Documents\WebDev\Thymely\Library\Gisleburt\LazyData\LazyData.php(350):	Indirect modification of overloaded property Thymely\LazyData\Timing::$date_modified has no effect
+
