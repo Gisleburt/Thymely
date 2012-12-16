@@ -11,15 +11,16 @@
 	$config = new \config();
 	
 	// Load the autoloader. This will be used for loading most classes.
-	require_once $config->dir['library'].'/Autoloader.php';
-	\Autoloader::$incDirs[] = $config->dir['library'];
-	spl_autoload_register('Autoloader::psr0');
+	require_once $config->dir['library'].'/Gisleburt/Tools/Autoloader.php';
+	\Gisleburt\Tools\Autoloader::$incDirs[] = $config->dir['library'];
+	spl_autoload_register('\Gisleburt\Tools\Autoloader::psr0');
 	
 	// Set up error handling. We'll handle anything php.ini asks us to and any Exceptions
-	\Gisleburt\Tools\ErrorHandler::$errorEmail  = $config->errorEmail;
-	\Gisleburt\Tools\ErrorHandler::$errorFolder = $config->errorFolder;
-	\Gisleburt\Tools\ErrorHandler::$devmode     = $config->devmode;
-	\Gisleburt\Tools\ErrorHandler::setErrorDb(
+	use \Gisleburt\Tools\ErrorHandler;
+	ErrorHandler::$errorEmail  = $config->errorEmail;
+	ErrorHandler::$errorFolder = $config->errorFolder;
+	ErrorHandler::$devmode     = $config->devmode;
+	ErrorHandler::setErrorDb(
 			$config->errorDbServer, 
 	        $config->errorDbUser,
 	        $config->errorDbPass,
@@ -51,8 +52,8 @@
 	// Application start
 	//
 	
-	$timing = Timing::startTiming('Hello');
-	var_dump($timing);
+	//$timing = Timing::startTiming('Hello');
+	//var_dump($timing);
 	
 	echo 'oh hai';
 
