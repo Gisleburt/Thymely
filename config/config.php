@@ -17,8 +17,8 @@
 			);
 		
 		// MySQL
-		public $mysqlUser   = 'danielma';
-		public $mysqlPass   = 'albion';
+		public $mysqlUser   = 'user';
+		public $mysqlPass   = 'password';
 		public $mysqlHost   = '127.0.0.1';
 		public $mysqlSchema = 'thymely';
 		
@@ -27,8 +27,8 @@
 		public $errorEmail     = 'daniel@danielmason.com';
 		public $errorSubject   = 'Error on DanielMason.com';
 		public $errorDbServer  = '127.0.0.1';
-		public $errorDbUser    = 'danielma';
-		public $errorDbPass    = 'albion';
+		public $errorDbUser    = 'user';
+		public $errorDbPass    = 'password';
 		public $errorDbSchema  = 'errors';
 		public $errorDbTable   = 'errors';
 		

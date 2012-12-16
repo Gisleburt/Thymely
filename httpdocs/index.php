@@ -29,7 +29,6 @@
 	set_error_handler('\Gisleburt\Tools\ErrorHandler::handleError', error_reporting());
 	set_exception_handler('\Gisleburt\Tools\ErrorHandler::handleException');
 	register_shutdown_function('\Gisleburt\Tools\ErrorHandler::handleShutdown');
-
 	
 	//
 	// Global Objects Setup
@@ -47,6 +46,10 @@
 	       ->setConfigDir( $smartyFolder.'/configs'    );
 	$smarty->error_reporting = E_ERROR;
 	$smarty->assign('devMode', $config->devmode);
+	
+	//
+	// Application start
+	//
 	
 	$timing = Timing::startTiming('Hello');
 	var_dump($timing);
