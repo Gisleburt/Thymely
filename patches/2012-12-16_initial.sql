@@ -235,4 +235,5 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_users_to_tasks` (
 ENGINE = InnoDB;
 
 
-CREATE USER `'dummyuser'@'localhost'` IDENTIFIED BY 'dummypassword';
+CREATE USER `dummyuser`@`localhost` IDENTIFIED BY 'dummypassword';
+GRANT ALL ON `thymely`.* TO `dummyuser`@`localhost`;
