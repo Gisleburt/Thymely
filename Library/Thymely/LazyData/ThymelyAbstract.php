@@ -1,14 +1,16 @@
 <?php
-
 	namespace Thymely\LazyData;
 
 	use Gisleburt\LazyData\LazyData;
 
-	abstract class AbstractThymely extends LazyData  {
-		
-		protected $_host = '127.0.0.1';
+	/**
+	 * LazyData Database Class
+	 */
+	abstract class ThymelyAbstract extends LazyData  {
+
+		protected $_host = 'localhost';
 		protected $_username = 'dummyuser';
 		protected $_password = 'dummypassword';
 		protected $_schema = 'thymely';
-		
+
 	}
