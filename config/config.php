@@ -17,8 +17,8 @@
 			);
 		
 		// MySQL
-		public $mysqlUser   = 'user';
-		public $mysqlPass   = 'password';
+		public $mysqlUser   = 'dummyuser';
+		public $mysqlPass   = 'dummypassword';
 		public $mysqlHost   = '127.0.0.1';
 		public $mysqlSchema = 'thymely';
 		
