@@ -235,5 +235,4 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_users_to_tasks` (
 ENGINE = InnoDB;
 
 
-CREATE USER `thymely` IDENTIFIED BY 'longbutnotrandom';
-GRANT ALL ON `thymely`.* TO `thymely`;
+CREATE USER `'dummyuser'@'localhost'` IDENTIFIED BY 'dummypassword';
