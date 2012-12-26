@@ -16,12 +16,20 @@
 
 		// Smarty
 		public $smarty = array(
-				'configDir'     => 'Library/Smarty/configs',
-				'pluginsDir'    => 'Library/Smarty/plugins',
-				'sysPluginsDir' => 'Library/Smarty/sysplugins',
+				'includeDir' => 'Library/Smarty',
+				'configDirs' => array(
+						'Library/Smarty/configs',
+					),
+				'pluginsDirs' => array(
+						'Library/Smarty/plugins',
+						'Library/Smarty/sysplugins',
+					),
 				'cacheDir'      => 'data/cache',
 				'compileDir'    => 'data/templates_c',
-				'templatesDir'  => 'data/templates',
+				'templateDirs'  => array(
+						'data/templates',
+						'Library/Thymely/Templates',
+					),
 			);
 
 		// MySQL
@@ -35,8 +43,8 @@
 		public $errorEmail     = 'daniel@danielmason.com';
 		public $errorSubject   = 'Error on DanielMason.com';
 		public $errorDbServer  = '127.0.0.1';
-		public $errorDbUser    = 'user';
-		public $errorDbPass    = 'password';
+		public $errorDbUser    = 'errorUser';
+		public $errorDbPass    = 'errorPassword';
 		public $errorDbSchema  = 'errors';
 		public $errorDbTable   = 'errors';
 		
@@ -47,8 +55,9 @@
 		 */
 		public function __construct() {
 			// Lets make the paths absolute if they aren't already
-			foreach($this->dir as $key => $dir)
-				$this->dir[$key] = $this->makeAbsolute($dir);
+			$this->dir    = $this->makeAbsolute($this->dir);
+			$this->smarty = $this->makeAbsolute($this->smarty);
+
 			$this->errorFolder = $this->makeAbsolute($this->errorFolder);
 		}
 		
