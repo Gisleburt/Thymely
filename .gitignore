@@ -3,7 +3,7 @@
 /.settings/org.eclipse.php.core.prefs
 /.settings/org.eclipse.wst.common.project.facet.core.xml
 /*.komodoproject
-/data/Smarty/templates_c*
-/data/logs*
+/data/Smarty/templates_c/*
+/data/logs/*
 /.idea
 
