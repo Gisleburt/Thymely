@@ -10,12 +10,20 @@
 				'root'       => '',
 				'data'       => 'data',
 				'logs'       => 'data/logs',
-				'templates'  => 'data/templates',
-				'templatesC' => 'data/templates_c',
 				'userfiles'  => 'data/userfiles',
 				'library'    => 'Library',
 			);
-		
+
+		// Smarty
+		public $smarty = array(
+				'configDir'     => 'Library/Smarty/configs',
+				'pluginsDir'    => 'Library/Smarty/plugins',
+				'sysPluginsDir' => 'Library/Smarty/sysplugins',
+				'cacheDir'      => 'data/cache',
+				'compileDir'    => 'data/templates_c',
+				'templatesDir'  => 'data/templates',
+			);
+
 		// MySQL
 		public $mysqlUser   = 'dummyuser';
 		public $mysqlPass   = 'dummypassword';
@@ -51,8 +59,14 @@
 		 * @return string
 		 */
 		public function makeAbsolute($dir) {
-			if(strpos($dir, '/') !== 0 && strpos($dir, ':') !== 1)
-				$dir = dirname(__DIR__).'/'.$dir;
+			if(is_array($dir)) {
+				foreach($dir as $key => $value)
+					$dir[$key] = $this->makeAbsolute($value);
+			}
+			else {
+				if(strpos($dir, '/') !== 0 && strpos($dir, ':') !== 1)
+					$dir = dirname(__DIR__).'/'.$dir;
+			}
 			return $dir;
 		}
 		

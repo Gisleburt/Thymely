@@ -1,6 +1,6 @@
 <?php
 
-	use Thymely\LazyData\Timing;
+	use \Gisleburt\Tools\Router;
 
 	//
 	// Application set up
@@ -40,21 +40,30 @@
 	require_once $smartyFolder.'/Smarty.class.php';
 
 	// Create an instance of the template controller
-	$smarty = new Smarty();
-	$smarty->setTemplateDir($config->dir['templates']       )
-	       ->setCompileDir($config->dir['templatesC'])
-	       ->setCacheDir(  $smartyFolder.'/cache'      )
-	       ->setConfigDir( $smartyFolder.'/configs'    );
-	$smarty->error_reporting = E_ERROR;
-	$smarty->assign('devMode', $config->devmode);
+	$template = new \Gisleburt\Templates\Smarty();
+	$template->initialise($config);
+
+var_dump($template);
+
+/*
+	$template->addPluginsDir(  $smartyFolder.'/sysplugins' )
+	       ->setTemplateDir( $config->dir['templates']   )
+           ->setCompileDir(  $config->dir['templatesC']  )
+           ->setCacheDir(    $smartyFolder.'/cache'      )
+           ->setConfigDir(   $smartyFolder.'/configs'    )
+           ->addPluginsDir(  $smartyFolder.'/plugins'    );
+	//$smarty->error_reporting = E_ERROR;
+	$template->assign('devMode', $config->devmode);
 	
 	//
 	// Application start
 	//
-	
-	//$timing = Timing::startTiming('Hello');
-	//var_dump($timing);
-	
-	echo 'oh hai';
+	//$router = new Router('Thymely\\Controller');
+	//$router->analyseRequest();
+	//$router->loadController();
 
-	
+	//echo file_get_contents('../Library/Thymely/Templates/Index/Index.tpl');
+
+	$template->display('../Library/Thymely/Templates/Index/Index.tpl');
+*/
+	die;
