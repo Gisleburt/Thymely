@@ -34,36 +34,18 @@
 	//
 	// Global Objects Setup
 	//
-	
-	// Smarty
-	$smartyFolder = $config->dir['library'].'/Smarty';
-	require_once $smartyFolder.'/Smarty.class.php';
 
 	// Create an instance of the template controller
 	$template = new \Gisleburt\Templates\Smarty();
-	$template->initialise($config);
-
-var_dump($template);
-
-/*
-	$template->addPluginsDir(  $smartyFolder.'/sysplugins' )
-	       ->setTemplateDir( $config->dir['templates']   )
-           ->setCompileDir(  $config->dir['templatesC']  )
-           ->setCacheDir(    $smartyFolder.'/cache'      )
-           ->setConfigDir(   $smartyFolder.'/configs'    )
-           ->addPluginsDir(  $smartyFolder.'/plugins'    );
-	//$smarty->error_reporting = E_ERROR;
-	$template->assign('devMode', $config->devmode);
-	
+	$template->initialise($config->smarty);
+	//spl_autoload_register('\Gisleburt\Templates\Smarty::autoLoad');
+	//$template->display('Index/Index.tpl'); die;
 	//
 	// Application start
 	//
-	//$router = new Router('Thymely\\Controller');
-	//$router->analyseRequest();
-	//$router->loadController();
+	$router = new Router('Thymely\\Controller');
+	$router->analyseRequest();
+	$router->loadController();
 
-	//echo file_get_contents('../Library/Thymely/Templates/Index/Index.tpl');
 
-	$template->display('../Library/Thymely/Templates/Index/Index.tpl');
-*/
 	die;
