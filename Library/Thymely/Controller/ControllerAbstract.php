@@ -23,7 +23,6 @@
 
 		public function __construct(array $uriParameters) {
 			parent::__construct($uriParameters);
-			$this->templateDir = __DIR__.'/../Templates';
 			$this->globalSession = Session::getSession(__class__);
 			$this->localSession  = Session::getSession(get_called_class());
 		}
