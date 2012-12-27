@@ -11,56 +11,56 @@
 		 * Time Id 
 		 * @var long 
 		 */
-		public time_id;
+		public $time_id;
 
 		
 		/**
 		 * User Id 
 		 * @var long 
 		 */
-		public user_id;
+		public $user_id;
 
 		
 		/**
 		 * Task Id 
 		 * @var long 
 		 */
-		public task_id;
+		public $task_id;
 
 		
 		/**
 		 * Date Started 
 		 * @var string 
 		 */
-		public date_started;
+		public $date_started;
 
 		
 		/**
 		 * Time 
 		 * @var long 
 		 */
-		public time;
+		public $time;
 
 		
 		/**
 		 * Date Created 
 		 * @var string 
 		 */
-		public date_created;
+		public $date_created;
 
 		
 		/**
 		 * Date Modified 
 		 * @var string 
 		 */
-		public date_modified;
+		public $date_modified;
 
 		
 		/**
 		 * Date Deleted 
 		 * @var string 
 		 */
-		public date_deleted;
+		public $date_deleted;
 
 		
 	}

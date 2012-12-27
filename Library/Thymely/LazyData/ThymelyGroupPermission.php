@@ -11,14 +11,14 @@
 		 * Permission Id 
 		 * @var long 
 		 */
-		public permission_id;
+		public $permission_id;
 
 		
 		/**
 		 * Name 
 		 * @var string 
 		 */
-		public name;
+		public $name;
 
 		
 	}

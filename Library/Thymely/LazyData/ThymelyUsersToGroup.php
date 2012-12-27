@@ -11,28 +11,28 @@
 		 * Info Id 
 		 * @var long 
 		 */
-		public info_id;
+		public $info_id;
 
 		
 		/**
 		 * User Id 
 		 * @var long 
 		 */
-		public user_id;
+		public $user_id;
 
 		
 		/**
 		 * Group Id 
 		 * @var long 
 		 */
-		public group_id;
+		public $group_id;
 
 		
 		/**
 		 * Role Id 
 		 * @var long 
 		 */
-		public role_id;
+		public $role_id;
 
 		
 	}

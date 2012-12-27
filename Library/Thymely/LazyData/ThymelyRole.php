@@ -11,14 +11,14 @@
 		 * Role Id 
 		 * @var long 
 		 */
-		public role_id;
+		public $role_id;
 
 		
 		/**
 		 * Name 
 		 * @var string 
 		 */
-		public name;
+		public $name;
 
 		
 	}
