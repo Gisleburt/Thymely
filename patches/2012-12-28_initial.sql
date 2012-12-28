@@ -11,11 +11,12 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_users` (
   `user_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `email` VARCHAR(128) NOT NULL ,
   `password` VARCHAR(128) NOT NULL ,
+  `salt` VARCHAR(32) NOT NULL ,
   `firstname` VARCHAR(32) NOT NULL ,
   `lastname` VARCHAR(32) NOT NULL ,
-  `date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp ,
-  `date_modified` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
-  `date_deleted` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_created` DATETIME NOT NULL DEFAULT 0 ,
+  `date_modified` DATETIME NOT NULL DEFAULT 0 ,
+  `date_deleted` DATETIME NOT NULL DEFAULT 0 ,
   PRIMARY KEY (`user_id`) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
 ENGINE = InnoDB;
@@ -29,9 +30,9 @@ DROP TABLE IF EXISTS `thymely`.`thymely_groups` ;
 CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_groups` (
   `group_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT ,
   `name` VARCHAR(45) NOT NULL ,
-  `date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp ,
-  `date_modified` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
-  `date_deleted` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_created` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_modified` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_deleted` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
   PRIMARY KEY (`group_id`) )
 ENGINE = InnoDB;
 
@@ -116,9 +117,9 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_tasks` (
   `owner_id` BIGINT UNSIGNED NOT NULL ,
   `name` VARCHAR(32) NOT NULL ,
   `description` VARCHAR(256) NOT NULL ,
-  `date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp ,
-  `date_modified` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
-  `date_deleted` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_created` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_modified` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_deleted` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
   PRIMARY KEY (`task_id`) ,
   INDEX `fk_tasks_owner_id` (`owner_id` ASC) ,
   CONSTRAINT `fk_tasks_owner_id`
@@ -140,9 +141,9 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_times` (
   `task_id` BIGINT UNSIGNED NOT NULL ,
   `date_started` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
   `time` BIGINT NOT NULL ,
-  `date_created` TIMESTAMP NOT NULL DEFAULT current_timestamp ,
-  `date_modified` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
-  `date_deleted` TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_created` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_modified` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_deleted` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
   PRIMARY KEY (`time_id`) ,
   INDEX `fk_user_id` (`user_id` ASC) ,
   INDEX `fk_task_id` (`task_id` ASC) ,
@@ -236,4 +237,4 @@ ENGINE = InnoDB;
 
 
 CREATE USER `dummyuser`@`localhost` IDENTIFIED BY 'dummypassword';
-GRANT ALL ON `thymely`.* TO `dummyuser`@`localhost`;
+GRANT ALL ON `thymely` TO `dummyuser`;

@@ -1,1 +1,0 @@
-ALTER TABLE `thymely`.`thymely_users` ADD COLUMN `salt` VARCHAR(32) NOT NULL  AFTER `password` ;
