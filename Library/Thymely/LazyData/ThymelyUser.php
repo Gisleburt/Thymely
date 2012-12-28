@@ -76,5 +76,48 @@
 		 */
 		public $date_deleted;
 
-		
+
+		/**
+		 * Hash the given password
+		 * @param $password
+		 * @return string
+		 */
+		public function hashPassword($password) {
+
+			global $config;
+
+			if(!$this->salt) {
+				$this->salt = Tools::randomAscii(32);
+			}
+
+			$siteKey = $config->getSiteKey();
+			$hashedPassword = $password;
+			$salt = $this->salt;
+
+			$nHashes = 1000;
+			for($i = 0; $i < $nHashes; $i++)
+				$hashedPassword = hash_hmac('sha256', $hashedPassword.$salt, $siteKey);
+
+			return $hashedPassword;
+
+		}
+
+		/**
+		 * Checks the given password is correct for this user
+		 * @param $password
+		 * @return bool
+		 */
+		public function checkPassword($password) {
+			return ($password
+			        && $this->password
+					&& $this->password === $this->hashPassword($password));
+		}
+
+		/**
+		 * This is used to allow the user object to be stored in session
+		 */
+		public function unsetPdo() {
+			unset($this->_pdo);
+		}
+
 	}

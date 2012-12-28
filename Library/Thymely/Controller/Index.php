@@ -9,6 +9,9 @@
 
 		public function indexAction() {
 
+			global $login;
+
+			$this->view->isLoggedIn = $login->isLoggedIn();
 
 		}
 

@@ -1,22 +1,64 @@
 <?php
 
+	namespace Thymely\Tools;
+
+	use \Thymely\LazyData\ThymelyUser;
+	use \Gisleburt\Tools\Session;
+
 	/**
 	 * Stores information about a login
 	 */
-	class Login extends \Gisleburt\Tools\Session
+	class Login extends Session
 	{
 		/**
-		 * @var \Thymely\LazyData\ThymelyUser
+		 * @var ThymelyUser
 		 */
-		protected $user;
+		public $user;
 
-		protected function __construct() { }
+		/**
+		 * Gets the login object
+		 * @return Login
+		 */
+		public static function getLogin() {
+			return self::getSession();
+		}
 
-		public static function login($email, $password) {
+		/**
+		 * Logs a user in
+		 * @param $email string
+		 * @param $password string
+		 * @return bool
+		 */
+		public function login($email, $password) {
+
+			$user = new ThymelyUser();
+			$user->loadBy('email', $email);
+			if($user->checkPassword($password)) {
+				$login = self::getSession();
+				$user->unsetPdo();
+				$login->user = $user;
+				return true;
+			}
+
+			return false;
+
+		}
+
+		/**
+		 * Checks to see if a user is logged in
+		 * @return bool
+		 */
+		public function isLoggedIn() {
+			return ($this->user && $this->user instanceof ThymelyUser && $this->user->user_id > 0);
+		}
 
 
-			return
-
+		/**
+		 * Destroys the login object
+		 */
+		public function logout() {
+			$this->user = null;
+			$this->clearSession();
 		}
 
 	}
