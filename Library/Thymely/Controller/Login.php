@@ -26,7 +26,7 @@
 			if($login->isLoggedIn())
 				$this->router->redirect("/");
 			else
-				$this->router->redirect("/login?error");
+				$this->router->redirect("/login/error");
 
 		}
 
