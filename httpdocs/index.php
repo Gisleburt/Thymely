@@ -38,14 +38,12 @@
 	// Create an instance of the template controller
 	$template = new \Gisleburt\Templates\Smarty();
 	$template->initialise($config->smarty);
-	//spl_autoload_register('\Gisleburt\Templates\Smarty::autoLoad');
-	//$template->display('Index/Index.tpl'); die;
+
 	//
 	// Application start
 	//
 	$router = new Router('Thymely\\Controller');
 	$router->analyseRequest();
 	$router->loadController();
-
 
 	die;
