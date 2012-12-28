@@ -47,7 +47,9 @@
 		public $errorDbPass    = 'errorPassword';
 		public $errorDbSchema  = 'errors';
 		public $errorDbTable   = 'errors';
-		
+
+		// Cryptography
+		protected $siteKey = 'somerandomstringhere';
 		
 		
 		/**
@@ -77,6 +79,10 @@
 					$dir = dirname(__DIR__).'/'.$dir;
 			}
 			return $dir;
+		}
+
+		public function getSiteKey() {
+			return $this->siteKey;
 		}
 		
 	}
