@@ -6,6 +6,13 @@
 	 * LazyData class
 	 */
 	class ThymelyTask extends ThymelyAbstract {
+	
+		/**
+		 * The table this LazyData object represents
+		 * @var string
+		 */
+		protected $_table = 'thymely_tasks';
+	
 		
 		/**
 		 * Task Id 

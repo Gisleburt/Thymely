@@ -6,6 +6,13 @@
 	 * LazyData class
 	 */
 	class ThymelyGroupPermission extends ThymelyAbstract {
+	
+		/**
+		 * The table this LazyData object represents
+		 * @var string
+		 */
+		protected $_table = 'thymely_group_permissions';
+	
 		
 		/**
 		 * Permission Id 

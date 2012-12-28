@@ -6,6 +6,13 @@
 	 * LazyData class
 	 */
 	class ThymelyUsersToUser extends ThymelyAbstract {
+	
+		/**
+		 * The table this LazyData object represents
+		 * @var string
+		 */
+		protected $_table = 'thymely_users_to_users';
+	
 		
 		/**
 		 * Info Id 

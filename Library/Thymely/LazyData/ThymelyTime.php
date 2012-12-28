@@ -6,6 +6,13 @@
 	 * LazyData class
 	 */
 	class ThymelyTime extends ThymelyAbstract {
+	
+		/**
+		 * The table this LazyData object represents
+		 * @var string
+		 */
+		protected $_table = 'thymely_times';
+	
 		
 		/**
 		 * Time Id 
