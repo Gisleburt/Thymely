@@ -1,6 +1,8 @@
 <?php
 
 	use \Gisleburt\Tools\Router;
+	use \Gisleburt\Templates\Smarty;
+	use \Thymely\Tools\Login;
 
 	//
 	// Application set up
@@ -36,8 +38,11 @@
 	//
 
 	// Create an instance of the template controller
-	$template = new \Gisleburt\Templates\Smarty();
+	$template = new Smarty();
 	$template->initialise($config->smarty);
+
+	// Login object
+	$login = Login::getLogin();
 
 	//
 	// Application start
@@ -46,4 +51,3 @@
 	$router->analyseRequest();
 	$router->loadController();
 
-	die;
