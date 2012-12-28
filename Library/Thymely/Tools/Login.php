@@ -3,14 +3,19 @@
 	/**
 	 * Stores information about a login
 	 */
-	class Login
+	class Login extends \Gisleburt\Tools\Session
 	{
 		/**
-		 * @var \
+		 * @var \Thymely\LazyData\ThymelyUser
 		 */
 		protected $user;
 
-		public function __construct() {
+		protected function __construct() { }
+
+		public static function login($email, $password) {
+
+
+			return
 
 		}
 
