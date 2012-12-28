@@ -2,6 +2,8 @@
 
 	namespace Thymely\LazyData;
 
+	use \Gisleburt\Tools\Tools;
+
 	/**
 	 * LazyData class
 	 */
