@@ -1,0 +1,1 @@
+Welcome to Thymely's RESTful API. <a href="/rest/tasks">Click here to try it.</a>

@@ -84,7 +84,7 @@
 		 * @param $password
 		 * @return string
 		 */
-		public function hashPassword($password) {
+		protected function hashPassword($password) {
 
 			global $config;
 
@@ -120,6 +120,15 @@
 		 */
 		public function unsetPdo() {
 			unset($this->_pdo);
+		}
+
+		/**
+		 * Set a new password
+		 * @param $password
+		 */
+		public function setPassword($password) {
+			$this->salt = Tools::randomAscii(32);
+			$this->password = $this->hashPassword($password);
 		}
 
 	}
