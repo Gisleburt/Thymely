@@ -3,6 +3,7 @@
     <input type="password" name="password">
 	<input type="submit" value="Login" />
 </form>
+
 {if $error}
-<span style="color:red">Uh oh, something went wrong!</span>
+	<span style="color:red">Uh oh, something went wrong!</span>
 {/if}
