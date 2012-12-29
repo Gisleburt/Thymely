@@ -9,7 +9,7 @@ namespace Thymely\Controller;
 	{
 
 		public function callAction($action) {
-			$action = $_SERVER['REQUEST_METHOD'].rtrim(ucfirst($action), 's');
+			$action = strtolower($_SERVER['REQUEST_METHOD']).rtrim(ucfirst($action), 's');
 			parent::callAction($action);
 		}
 
