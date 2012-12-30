@@ -1,3 +1,5 @@
+{include file="Include/Top.tpl"}
+
 {if $loginRequired}
 	You must login to use this feature.
 {/if}
@@ -15,5 +17,7 @@
 </form>
 
 {if $error}
-	<span style="color:red">Uh oh, something went wrong!</span>
+	<span style="color:red">Uh oh, the email and password didn't match</span>... (try "test@test.com" and "testtest")
 {/if}
+
+{include file="Include/Bottom.tpl"}

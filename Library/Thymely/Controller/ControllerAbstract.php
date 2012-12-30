@@ -29,11 +29,15 @@
 		protected $localSession;
 
 		public function __construct(array $uriParameters) {
+
+			parent::__construct($uriParameters);
+
 			global $login;
 			$this->login = $login;
-			parent::__construct($uriParameters);
+			$this->view->isLoggedIn = $login->isLoggedIn();
 			$this->globalSession = Session::getSession(__class__);
 			$this->localSession  = Session::getSession(get_called_class());
+
 		}
 
 		public function callAction($action) {
