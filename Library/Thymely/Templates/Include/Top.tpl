@@ -5,7 +5,7 @@
 	<body>
 	<div style="text-align: right; border-bottom: 1px solid grey;">
 		{if $isLoggedIn}
-			Hello {$login->user->firstname}, <a href="/login/logout">Logout</a>
+			Hello {$login->user->firstname}, <a href="/logout">Logout</a>
 		{else}
 			<a href="/login">Login</a>
 		{/if}

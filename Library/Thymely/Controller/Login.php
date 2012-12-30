@@ -43,9 +43,4 @@
 			$this->view->error = (strtolower($this->actionAttempted) == 'error');
 		}
 
-		public function logoutAction() {
-			global $login;
-			$login->logout();
-		}
-
 	}
