@@ -34,14 +34,14 @@
 		 * Password 
 		 * @var string 
 		 */
-		public $password;
+		protected $password;
 
 		
 		/**
 		 * Salt 
 		 * @var string 
 		 */
-		public $salt;
+		protected $salt;
 
 		
 		/**
