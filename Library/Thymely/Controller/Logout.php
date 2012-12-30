@@ -16,6 +16,7 @@
 
 			global $login;
 			$login->logout();
+			$this->view->isLoggedIn = false;
 
 		}
 
