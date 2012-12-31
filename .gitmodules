@@ -1,3 +1,6 @@
 [submodule "Library/Gisleburt"]
 	path = Library/Gisleburt
 	url = https://github.com/Gisleburt/Gisleburt.git
+[submodule "Library/Twig"]
+	path = Library/Twig
+	url = https://github.com/fabpot/Twig.git
