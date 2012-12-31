@@ -5,13 +5,8 @@ namespace Thymely\Controller;
 	/**
 	 * Controller for REST API
 	 */
-	class Rest extends ControllerAbstract
+	class Rest extends RestAbstract
 	{
-
-		public function callAction($action) {
-			$action = strtolower($_SERVER['REQUEST_METHOD']).rtrim(ucfirst($action), 's');
-			parent::callAction($action);
-		}
 
 		public function indexAction() {
 
@@ -26,6 +21,10 @@ namespace Thymely\Controller;
 		}
 
 		public function postTaskAction() {
+
+		}
+
+		public function putTaskAction() {
 
 		}
 

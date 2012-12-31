@@ -9,6 +9,8 @@
 
 		protected $requiresLogin = false;
 
+		protected $requiresCookies = false;
+
 		public function indexAction() {
 
 		}
