@@ -14,8 +14,8 @@
 		 */
 		public function indexAction() {
 
-			global $login;
-			$login->logout();
+			$this->login->logout();
+			unset($this->view->login);
 			$this->view->isLoggedIn = false;
 
 		}
