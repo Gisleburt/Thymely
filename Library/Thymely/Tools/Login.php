@@ -31,15 +31,13 @@
 		 */
 		public function login($email, $password) {
 
-			$user = new ThymelyUser();
-			$user->loadBy('email', $email);
-			if($user->checkPassword($password)) {
-				$login = self::getSession();
+			$user = ThymelyUser::login($email, $password);
+			if($user) {
 				$user->unsetPdo();
+				$login = self::getLogin();
 				$login->user = $user;
 				return true;
 			}
-
 			return false;
 
 		}

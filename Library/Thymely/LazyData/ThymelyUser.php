@@ -43,6 +43,18 @@
 		 */
 		protected $salt;
 
+		/**
+		 * Failed login attempts
+		 * @var integer
+		 */
+		public $failed_logins;
+
+		/**
+		 * Current status of user
+		 * @var string
+		 */
+		public $status;
+
 		
 		/**
 		 * Firstname 
@@ -77,6 +89,10 @@
 		 * @var string 
 		 */
 		public $date_deleted;
+
+		const STATUS_ACTIVE   = 'active';
+		const STATUS_INACTIVE = 'inactive';
+		const STATUS_ACTIVATE = 'activate';
 
 
 		/**
@@ -129,6 +145,45 @@
 		public function setPassword($password) {
 			$this->salt = Tools::randomAscii(32);
 			$this->password = $this->hashPassword($password);
+		}
+
+		/**
+		 * Returns a user with the given login details
+		 * @param $email
+		 * @param $password
+		 * @return ThymelyUser
+		 */
+		public static function login($email, $password) {
+			$user = new self();
+			$user->loadBy('email', $email);
+			if($user->status == self::STATUS_ACTIVE) {
+				if($user->checkPassword($password)
+						&& $user->failed_logins < 3) {
+					return $user;
+				}
+				else {
+					$user->failed_logins++;
+					$user->save();
+				}
+			}
+		}
+
+		public function sendPassword() {
+			if($this->isActive()) {
+				$password = Tools::randomAscii(8);
+				$this->setPassword($password);
+			}
+		}
+
+		public function isActive() {
+			return $this->status == self::STATUS_ACTIVE;
+		}
+
+		public function activate() {
+			if($this->status == self::STATUS_ACTIVATE) {
+				$this->status = self::STATUS_ACTIVE;
+				$this->sendPassword();
+			}
 		}
 
 	}
