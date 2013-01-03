@@ -12,11 +12,13 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_users` (
   `email` VARCHAR(128) NOT NULL ,
   `password` VARCHAR(128) NOT NULL ,
   `salt` VARCHAR(32) NOT NULL ,
+  `failed_logins` INT NOT NULL DEFAULT 0 ,
   `firstname` VARCHAR(32) NOT NULL ,
   `lastname` VARCHAR(32) NOT NULL ,
-  `date_created` DATETIME NOT NULL DEFAULT 0 ,
-  `date_modified` DATETIME NOT NULL DEFAULT 0 ,
-  `date_deleted` DATETIME NOT NULL DEFAULT 0 ,
+  `date_created` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_modified` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_deleted` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `status` ENUM('active', 'inactive') NOT NULL DEFAULT 'inactive' ,
   PRIMARY KEY (`user_id`) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
 ENGINE = InnoDB;
@@ -236,5 +238,48 @@ CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_users_to_tasks` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `thymely`.`thymely_admins`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `thymely`.`thymely_admins` ;
+
+CREATE  TABLE IF NOT EXISTS `thymely`.`thymely_admins` (
+  `admin_id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT ,
+  `email` VARCHAR(128) NOT NULL ,
+  `password` VARCHAR(128) NOT NULL ,
+  `salt` VARCHAR(32) NOT NULL ,
+  `failed_logins` INT NOT NULL DEFAULT 0 ,
+  `firstname` VARCHAR(32) NOT NULL ,
+  `lastname` VARCHAR(32) NOT NULL ,
+  `date_created` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_modified` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `date_deleted` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `status` ENUM('active', 'inactive') NOT NULL DEFAULT 'inactive' ,
+  PRIMARY KEY (`admin_id`) ,
+  UNIQUE INDEX `email_UNIQUE` (`email` ASC) )
+ENGINE = InnoDB;
+
+
+DROP SCHEMA IF EXISTS `thymely_errors` ;
+CREATE SCHEMA IF NOT EXISTS `thymely_errors` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ;
+USE `thymely_errors` ;
+
+
+-- -----------------------------------------------------
+-- Table `thymely_errors`.`errors`
+-- -----------------------------------------------------
+
+DROP TABLE IF EXISTS `thymely_errors`.`errors` ;
+CREATE  TABLE IF NOT EXISTS `thymely_errors`.`errors` (
+  `error_id` BIGINT NOT NULL AUTO_INCREMENT ,
+  `date` DATETIME NOT NULL DEFAULT '0000-00-00 00:00:00' ,
+  `message` VARCHAR(512) NOT NULL DEFAULT '' ,
+  `filename` VARCHAR(128) NOT NULL DEFAULT '' ,
+  `line` INT NOT NULL DEFAULT 0 ,
+  PRIMARY KEY (`error_id`) )
+ENGINE = InnoDB;
+
+
 CREATE USER `dummyuser`@`localhost` IDENTIFIED BY 'dummypassword';
-GRANT ALL ON `thymely` TO `dummyuser`;
+GRANT ALL ON thymely.* TO `dummyuser`@`localhost`;
+GRANT ALL ON thymely_errors.* TO `dummyuser`@`localhost`;
