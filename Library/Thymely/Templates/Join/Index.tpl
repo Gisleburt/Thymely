@@ -11,18 +11,25 @@
 <form action="" method="post">
 	<label for="email">Email</label>
 		<input id="email" name="email" value="{$email}" />
+		{if $emailError}
+			<span style="color:red">{$emailError}</span>
+		{/if}
 		<br />
     <label for="firstname">Firstname</label>
     	<input id="firstname" name="firstname" value="{$firstname}" />
+		{if $firstnameError}
+			<span style="color:red">{$firstnameError}</span>
+		{/if}
     	<br />
     <label for="lastname">Lastname</label>
     	<input id="lastname" name="lastname" value="{$lastname}" />
+		{if $lastnameError}
+			<span style="color:red">{$lastnameError}</span>
+		{/if}
     	<br />
 	<button type="Submit" name="join" value="1">Join</button>
 </form>
 
-{if $error}
-<span style="color:red">{$error}</span>
-{/if}
+
 
 {include file="Include/Bottom.tpl"}

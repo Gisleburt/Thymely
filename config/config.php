@@ -11,6 +11,7 @@
 				'data'       => 'data',
 				'logs'       => 'data/logs',
 				'userfiles'  => 'data/userfiles',
+				'mail'       => 'data/mail',
 				'library'    => 'Library',
 			);
 
@@ -32,6 +33,21 @@
 					),
 			);
 
+		public $twig = array(
+				'twigDir' => 'Library/Twig/lib/Twig',
+				'templateDirs'  => array(
+					//'data/templates',
+					'Library/Thymely/Templates',
+				),
+				'compileDir'    => 'data/templates_c',
+			);
+
+		public $phpTemplates = array(
+				'templateDirs' => array(
+					'Library/Thymely/Templates',
+				)
+			);
+
 		// MySQL
 		public $mysqlUser   = 'dummyuser';
 		public $mysqlPass   = 'dummypassword';
@@ -43,9 +59,9 @@
 		public $errorEmail     = 'daniel@danielmason.com';
 		public $errorSubject   = 'Error on DanielMason.com';
 		public $errorDbServer  = '127.0.0.1';
-		public $errorDbUser    = 'errorUser';
-		public $errorDbPass    = 'errorPassword';
-		public $errorDbSchema  = 'errors';
+		public $errorDbUser    = 'dummyuser';
+		public $errorDbPass    = 'dummypassword';
+		public $errorDbSchema  = 'thymely_errors';
 		public $errorDbTable   = 'errors';
 
 		// Cryptography
@@ -59,7 +75,9 @@
 			// Lets make the paths absolute if they aren't already
 			$this->dir    = $this->makeAbsolute($this->dir);
 			$this->smarty = $this->makeAbsolute($this->smarty);
-
+			$this->twig   = $this->makeAbsolute($this->twig);
+			$this->phpTemplates = $this->makeAbsolute($this->phpTemplates);
+			$this->twig['devmode'] = $this->devmode;
 			$this->errorFolder = $this->makeAbsolute($this->errorFolder);
 		}
 		

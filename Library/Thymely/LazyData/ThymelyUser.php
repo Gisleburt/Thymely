@@ -145,6 +145,7 @@
 		public function setPassword($password) {
 			$this->salt = Tools::randomAscii(32);
 			$this->password = $this->hashPassword($password);
+			$this->save();
 		}
 
 		/**
@@ -169,10 +170,21 @@
 		}
 
 		public function sendPassword() {
-			if($this->isActive()) {
+			//if($this->isActive()) {
 				$password = Tools::randomAscii(8);
 				$this->setPassword($password);
-			}
+				$mail = new \Thymely\Tools\Mail();
+				$mail->addTo($this->email)
+				     ->setSubject('Welcome to Thymley')
+				     ->setMessage("
+
+						Welcome to Thymely
+
+						Your password has been set to: $password
+
+						")
+				    ->send();
+			//}
 		}
 
 		public function isActive() {
@@ -180,10 +192,10 @@
 		}
 
 		public function activate() {
-			if($this->status == self::STATUS_ACTIVATE) {
+			//if($this->status == self::STATUS_ACTIVATE) {
 				$this->status = self::STATUS_ACTIVE;
 				$this->sendPassword();
-			}
+			//}
 		}
 
 	}
