@@ -5,10 +5,22 @@
 	/**
 	 * Index controller
 	 */
-	class Account extends ControllerAbstract {
+	class Me extends ControllerAbstract {
 
 
 		public function indexAction() {
+
+			if($this->post()) {
+				$validator = new \Gisleburt\Validator\MinLength(2);
+				$email = $this->post('email');
+				if($email && $email == $this->login->user->email) {
+
+				}
+
+				if($this->post('email') && $this->login->user->email != $this->post('email')) {
+
+				}
+			}
 
 		}
 
