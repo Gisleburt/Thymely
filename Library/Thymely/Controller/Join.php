@@ -6,6 +6,7 @@
 	use \Gisleburt\Tools\Tools;
 	use \Gisleburt\Validator\Validator;
 	use \Gisleburt\Validator\Email;
+	use \Thymely\Validator\Password;
 
 	/**
 	 * Index controller
@@ -18,11 +19,12 @@
 
 		public function indexAction() {
 
-			if($this->_getParam('join')) {
+			if($this->getParam('join')) {
 
-				$email     = $this->_getParam('email');
-				$firstname = $this->_getParam('firstname');
-				$lastname  = $this->_getParam('lastname');
+				$email     = $this->getParam('email');
+				$firstname = $this->getParam('firstname');
+				$lastname  = $this->getParam('lastname');
+				$password  = $this->getParam('password');
 
 
 				$validator = new Validator();
@@ -38,6 +40,11 @@
 				$validator->validate($email);
 				$this->view->emailError = $validator->getError();
 
+				$validator = new Validator(new Password());
+				$validator->setRequired();
+				$validator->validate($password);
+				$this->view->passwordError = $validator->getError();
+
 				if(!$validator->hasRecordedError()) {
 					$user = new ThymelyUser();
 					if($user->loadBy('email', $email)) {
@@ -47,6 +54,7 @@
 						$user->email     = $email;
 						$user->firstname = $firstname;
 						$user->lastname  = $lastname;
+						$user->setPassword($password);
 						$user->status    = ThymelyUser::STATUS_INACTIVE;
 						$user->save();
 						$this->welcome = true;

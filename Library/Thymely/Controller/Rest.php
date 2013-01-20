@@ -17,7 +17,7 @@ namespace Thymely\Controller;
 		//
 
 		public function getTaskAction() {
-			$task_id = $this->_getParam('task_id');
+			$task_id = $this->getParam('task_id');
 		}
 
 		public function postTaskAction() {

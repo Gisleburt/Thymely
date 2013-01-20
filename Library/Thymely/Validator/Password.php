@@ -10,6 +10,8 @@
 
 		protected $passwordLength = 8;
 
+		protected $confirmPassword;
+
 		public function __construct() {
 			$minLengthValidator = new MinLength($this->passwordLength);
 			$minLengthValidator->setRequired();
@@ -18,6 +20,17 @@
 					$minLengthValidator,
 				)
 			);
+		}
+
+		public function test($value) {
+
+
+			parent::test($value);
+
+		}
+
+		public function setConfirmPassword($confirmPassword) {
+			$this->confirmPassword = $confirmPassword;
 		}
 
 	}

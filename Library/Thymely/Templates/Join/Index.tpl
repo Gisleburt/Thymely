@@ -15,6 +15,15 @@
 			<span style="color:red">{$emailError}</span>
 		{/if}
 		<br />
+    <label for="password">Password</label>
+		<input id="password" name="password" value="" />
+		{if $passwordError}
+			<span style="color:red">{$passwordError}</span>
+		{/if}
+		<br />
+	<label for="password2">Repeat Password</label>
+    	<input id="password2" name="password2" value="" />
+		<br />
     <label for="firstname">Firstname</label>
     	<input id="firstname" name="firstname" value="{$firstname}" />
 		{if $firstnameError}

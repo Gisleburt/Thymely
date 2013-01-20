@@ -13,8 +13,8 @@
 		}
 
 		public function passwordAction() {
-			$password1 = $this->_getParam('password1');
-			$password2 = $this->_getParam('password2');
+			$password1 = $this->getParam('password1');
+			$password2 = $this->getParam('password2');
 
 			if($password1 && $password2 && $password1 === $password2) {
 

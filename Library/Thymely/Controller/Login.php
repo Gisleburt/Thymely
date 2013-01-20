@@ -20,9 +20,9 @@
 			$loginRequired = (strtolower($this->router->getRequestedController()) != 'login');
 
 			// Are we attempting to login now
-			if($this->_getParam('email')) {
-				$email    = $this->_getParam('email');
-				$password = $this->_getParam('password');
+			if($this->getParam('email')) {
+				$email    = $this->getParam('email');
+				$password = $this->getParam('password');
 
 				$this->login->login($email, $password);
 

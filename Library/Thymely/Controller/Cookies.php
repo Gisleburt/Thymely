@@ -16,7 +16,7 @@
 		}
 
 		public function postIndexAction() {
-			if($this->_getParam('allowCookies') == 1) {
+			if($this->getParam('allowCookies') == 1) {
 				$this->allowCookies();
 				$this->router->redirect();
 			}
