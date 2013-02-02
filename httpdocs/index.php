@@ -16,9 +16,10 @@
 	$config = new \config();
 	
 	// Load the autoloader. This will be used for loading most classes.
-	require_once $config->dir['library'].'/Gisleburt/Tools/Autoloader.php';
+	require_once "{$config->dir['library']}/Gisleburt/Tools/Autoloader.php";
 	Autoloader::$incDirs[] = $config->dir['library'];
 	spl_autoload_register('\Gisleburt\Tools\Autoloader::psr0');
+	require "{$config->dir['library']}/vendor/autoload.php";
 
 	// Set up error handling. We'll handle anything php.ini asks us to and any Exceptions
 	ErrorHandler::$errorEmail  = $config->errorEmail;
