@@ -8,37 +8,6 @@
 	the form below and you have my heart felt thanks for helping us!
 </p>
 
-<form action="" method="post">
-	<label for="email">Email</label>
-		<input id="email" name="email" value="{$email}" />
-		{if $emailError}
-			<span style="color:red">{$emailError}</span>
-		{/if}
-		<br />
-    <label for="password">Password</label>
-		<input id="password" name="password" value="" />
-		{if $passwordError}
-			<span style="color:red">{$passwordError}</span>
-		{/if}
-		<br />
-	<label for="password2">Repeat Password</label>
-    	<input id="password2" name="password2" value="" />
-		<br />
-    <label for="firstname">Firstname</label>
-    	<input id="firstname" name="firstname" value="{$firstname}" />
-		{if $firstnameError}
-			<span style="color:red">{$firstnameError}</span>
-		{/if}
-    	<br />
-    <label for="lastname">Lastname</label>
-    	<input id="lastname" name="lastname" value="{$lastname}" />
-		{if $lastnameError}
-			<span style="color:red">{$lastnameError}</span>
-		{/if}
-    	<br />
-	<button type="Submit" name="join" value="1">Join</button>
-</form>
-
-
+{include file="Form/UserDetails.tpl"}
 
 {include file="Include/Bottom.tpl"}

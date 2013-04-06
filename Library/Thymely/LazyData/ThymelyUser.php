@@ -192,10 +192,11 @@
 		}
 
 		public function activate() {
-			//if($this->status == self::STATUS_ACTIVATE) {
+			if($this->getPrimaryKey()) {
 				$this->status = self::STATUS_ACTIVE;
 				$this->sendPassword();
-			//}
+				$this->save();
+			}
 		}
 
 	}

@@ -1,5 +1,5 @@
 {include file="Include/Top.tpl"}
 
-{$passwordForm}
+{include file="Form/Password.tpl"}
 
 {include file="Include/Bottom.tpl"}

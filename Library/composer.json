@@ -1,6 +1,6 @@
 {
 	"require" : {
-		"zendframework/zendframework" : "2.1.*@dev",
+
 		"twig/twig": "1.12.*@dev"
 		
 	}

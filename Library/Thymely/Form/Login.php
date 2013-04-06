@@ -9,7 +9,7 @@
 	use Gisleburt\Form\Element;
 	use Thymely\LazyData\ThymelyUser;
 
-	class Password extends Form {
+	class Login extends Form {
 
 		/**
 		 * @var ThymelyUser
@@ -29,17 +29,16 @@
 				]),
 
 				new Element([
+					'name' => 'email',
+					'value' => $this->user->email,
+					'required' => true,
+				]),
+
+				new Element([
 					'name' => 'password',
 					'value' => '',
 					'required' => true,
 					'type' => 'password',
-				]),
-
-				new Element([
-					'name' => 'password2',
-					'value' => '',
-					'required' => true,
-					'type' => 'password2',
 				]),
 				
 			]);
