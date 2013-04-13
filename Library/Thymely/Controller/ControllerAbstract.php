@@ -45,6 +45,7 @@
 
 			parent::__construct($uriParameters);
 
+			$this->view->isLoggedIn = false;
 			if($this->allowingCookies()) {
 				$this->login = Login::getLogin();
 				$this->view->login = $this->login;

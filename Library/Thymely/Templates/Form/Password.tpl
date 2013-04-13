@@ -12,21 +12,21 @@
 				{/if}
 			</p>
 		{/if}
-		{if $form->getElement('password')}
+		{if $form->getElement('newPassword')}
 			<p>
-				<label for="password">Password</label>
-				<input id="password" name="password" value="" type="password" />
-				{if $form->getError('password')}
-					<span style="color:red">{$form->getError('password')}</span>
+				<label for="newPassword">Password</label>
+				<input id="newPassword" name="newPassword" value="" type="password" />
+				{if $form->getError('newPassword')}
+					<span style="color:red">{$form->getError('newPassword')}</span>
 				{/if}
 			</p>
 		{/if}
-		{if $form->getElement('password2')}
+		{if $form->getElement('newPassword2')}
 			<p>
-				<label for="password2">Repeat Password</label>
-				<input id="password2" name="password2" value="" type="password" />
-				{if $form->getError('password2')}
-					<span style="color:red">{$form->getError('password2')}</span>
+				<label for="newPassword2">Repeat Password</label>
+				<input id="newPassword2" name="newPassword2" value="" type="password" />
+				{if $form->getError('newPassword2')}
+					<span style="color:red">{$form->getError('newPassword2')}</span>
 				{/if}
 			</p>
 		{/if}

@@ -1,5 +1,11 @@
 {include file="Include/Top.tpl"}
 
+{if $passwordWasSet}
+	<div>
+		Your password has been changed.
+	</div>
+{/if}
+
 <a href="/me/password">Change my password</a>
 
 {if $success}

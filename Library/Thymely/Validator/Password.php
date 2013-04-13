@@ -5,32 +5,29 @@
 	use \Gisleburt\Validator\Validator;
 	use \Gisleburt\Validator\MinLength;
 
+	/**
+	 * Checks that a password matches an acceptable format
+	 * @package Thymely\Validator
+	 */
 	class Password extends Validator
 	{
 
 		protected $passwordLength = 8;
 
-		protected $confirmPassword;
-
 		public function __construct() {
-			$minLengthValidator = new MinLength($this->passwordLength);
-			$minLengthValidator->setRequired();
+			$minLengthValidator = new MinLength(array(
+				'minLength' => $this->passwordLength
+			));
 			parent::__construct(
 				array(
 					$minLengthValidator,
 				)
 			);
+			$this->setRequired();
 		}
 
 		public function test($value) {
-
-
-			parent::test($value);
-
-		}
-
-		public function setConfirmPassword($confirmPassword) {
-			$this->confirmPassword = $confirmPassword;
+			return true;
 		}
 
 	}

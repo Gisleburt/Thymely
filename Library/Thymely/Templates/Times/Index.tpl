@@ -1,9 +1,9 @@
 {include file="Include/Top.tpl"}
 
-<h1>Tasks</h1>
+<h1>Times</h1>
 
-{foreach $tasks as $task}
-	{$task}
+{foreach $times as $time}
+	{$time->}
 {/foreach}
 
 {include file="Include/Bottom.tpl"}

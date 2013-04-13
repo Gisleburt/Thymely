@@ -4,6 +4,7 @@
 
 	use Thymely\Form\Password;
 	use Thymely\Form\UserDetails;
+	use Thymely\LazyData\ThymelyUser;
 
 	/**
 	 * Index controller
@@ -29,6 +30,11 @@
 				}
 			}
 
+			if(isset($this->localSession->passwordWasSet) && $this->localSession->passwordWasSet) {
+				$this->view->passwordWasSet = $this->localSession->passwordWasSet;
+				unset($this->localSession->passwordWasSet);
+			}
+
 			$this->view->form = $form;
 
 		}
@@ -41,8 +47,10 @@
 			$form = new Password();
 
 			if($form->wasReceived() && $form->isValid()) {
-				var_dump($form->getValue('password'));
-				var_dump($form->getValue('password2'));
+				$tempUser = new ThymelyUser($this->login->user->getPrimaryKey());
+				$tempUser->setPassword($form->getValue('newPassword'));
+				$this->localSession->passwordWasSet = true;
+				$this->redirect('/me');
 			}
 
 			$this->view->form = $form;

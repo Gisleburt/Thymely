@@ -16,7 +16,7 @@
 </form>
 
 {if $error}
-	<span style="color:red">Uh oh, the email and password didn't match</span>... (try "test@test.com" and "testtest")
+	<span style="color:red">Uh oh, the email and password didn't match</span>
 {/if}
 
 {include file="Include/Bottom.tpl"}

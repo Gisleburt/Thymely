@@ -47,7 +47,7 @@
 		 * @return bool
 		 */
 		public function isLoggedIn() {
-			return ($this->user && $this->user instanceof ThymelyUser && $this->user->user_id > 0);
+			return ($this->user && $this->user instanceof ThymelyUser && ($this->user->user_id > 0));
 		}
 
 
